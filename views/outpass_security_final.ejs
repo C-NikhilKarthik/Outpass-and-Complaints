@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <link rel="stylesheet" href="http://localhost:8080/styles/outpass_faculty_final.css">
+        <link href='https://fonts.googleapis.com/css?family=Aldrich' rel='stylesheet'>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">            
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Roboto:wght@300&family=Varela+Round&display=swap" rel="stylesheet">        
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>    
+    </head>
+    <body>
+        <div id="top-navbar">
+            <div id="image-holder">
+                <div id="logo"></div>
+            </div>
+            <div id="content-holder">
+                <div id="social-media"></div>
+                <div id="slanted-item">
+                    <div id="menu-1">
+                        <div id="menu-container">
+                            <a class="menu" href="/home_faculty">HOME</a>
+                            <a class="menu">OUTPASS</a>
+                        </div>
+                    </div> 
+                    <div id="profile" onclick="showdiv()">
+                        <i class='fas fa-user fa-2x' style="pointer-events: none;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="profile-box">
+            <div id="box2">
+                <div id="profile-img">
+                    <i class='fas fa-user-edit' style='font-size:90px;color:white'></i>
+                </div>
+                <form>
+                    <div id="profile-info">
+                        <div class="info" style="font-size:25px;"><%=fname%></div>
+                        <div class="info"><%=ftitle%></div>
+                        <div class="info">Personal Contact No. : <%=fnum%></div>
+                    </div>
+                </form>
+                <div id="darkmode">
+                    <div id="darkmode-div">
+                        <div class="darkmode-font">Light</div>
+                        <div class="switch">
+                            <label class="theme-switch" for="checkbox">
+                                <input type="checkbox" id="checkbox" />
+                                <div id="slider" onclick="darkmode()"class="slider round"></div>
+                            </label>
+                        </div>
+                        <div class="darkmode-font">Dark</div>
+                    </div>
+
+                    <a class="change-password" href="/changepassword">Change Password</a>
+                
+
+                    
+                        <div class="logout">
+                            <a href="/start" id="logout-btn">LOGOUT</a>
+                        </div>
+                </div>
+            </div>
+        </div>
+        <div id="background-div1"></div>
+        <div id="grid-up"></div>
+        <div id="maindiv">
+            <div id="main-box" data-aos="fade-left" data-aos-duration="1000" data-aos-ease="ease-out">
+                <div id="student-order-box">
+                    <div id="main-header1">
+                        <div id="header-close-link"></div>
+                        <div id="options">
+                            <div id="outpass-btn" onclick="showoutpass()">STUDENTS</div>
+                            <div id="remaining1"></div>
+                        </div>
+                    </div>
+                    <form action="outpass_security_afterresponse" method="POST">
+                    <div id="students-container">
+                        <%for(i=0;i<elenum;i++){%><!--loop will execute according to number of students who sent request-->
+                                
+                                
+                            <input type="submit"  class="student-details" name="user" value=<%=sturoll[i].user%>><!--sturoll is an array containing each elements as objects-->
+                    
+                        
+                        <%}%>
+                    </div>
+                    </form>
+                </div>
+                <div id="main-box-container">
+                    <div id="main-header2">
+                        <div id="header-close-link">
+                        </div>
+                        <div id="options">
+                            <div id="outpass-btn" onclick="showoutpass()">OUTPASS</div>
+                            <div id="remaining"></div>
+                        </div>
+                    </div>
+                    <form action="/security_complete" method="POST">
+                    <div id="new-box">
+                        <div id="disapprove-box">
+                            <div class="center-content" style="font-size:20px;">Comments</div>
+                            <div id="comments-main">
+                                <input type="text" id="comments-1" placeholder="Comments" value="None">
+                            </div>
+                            <div class="outpass-content1">
+                                <div id="submit-box">
+                                    <div class="center-all" style="justify-content:var(--justify-content-start);">
+                                        <button type="button" id="submit-button4" onclick="Return()">CANCEL</button>
+                                    </div>
+                                    <div></div>
+                                    <div class="center-all" style="justify-content:var(--justify-content-end);">
+                                        <button type="submit" id="submit-button3">CONFIRM</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="outpass-body">
+                        <div class="outpass-content">
+                            <div class="center-content">Student Details</div>
+                            <div class="center-content">
+                                <div class="container-box">
+                                    <label></label>
+                                    <input type="text" class="type2" name="rollnum"  value=<%=stuname%> >
+                                </div>
+                                <div class="container-box">
+                                    <label class="label">Contact Number</label>
+                                    <input type="text" class="type2" value=<%=parentnum%>> <!--add column for contact number in your sql tables-->
+                                </div>
+                            </div>
+                            <div class="center-content">
+                                <div class="container-box">
+                                    <label></label>
+                                    <input type="text" class="type2" value=<%=stubranch%> >
+                                </div>
+                                <div class="container-box">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="outpass-content">
+                            <div class="center-content">Date of Arrival and Departure</div>
+                            <div class="center-content">
+                                <div class="container-box">
+                                    <label></label>
+                                    <input type="text" class="type1" value=<%=studeparture%>>
+                                </div>
+                                <div class="container-box">
+                                    <label class="label">Time of Departure</label>
+                                    <input type="text" class="type2" value=<%=studeparturetime%>>
+                                </div>
+                            </div>
+                            <div class="center-content">
+                                <div class="container-box">
+                                    <label></label>
+                                    <input type="text" class="type1"  value=<%=stuarrival%>>
+                                </div>
+                                <div class="container-box">
+                                    <label class="label">Time of Arrival</label>
+                                    <input type="text" class="type2"  value=<%=stuarrivaltime%> >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="outpass-content">
+                            <div class="reasons" >Reasons</div>
+                            <div id="reasons">
+                                <input type="text" id="specify-reason" placeholder="Reasons" value=<%=stureason%>>
+                            </div>
+                        </div>
+                        <div class="outpass-content1">
+                            <div id="submit-box">
+                                <div class="center-all" style="justify-content:var(--justify-content-start);">
+                                    <button type="submit" id="submit-button1">COMPLETED</button>
+                                </div>
+                               
+                            </div>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div id="details">
+                <div class="sections" style="border-right:1px solid var(--gray-200);">
+                    <div id="section-headers1">Quick Find</div>
+                    <div class="links" onclick="IIITD()">IIIT Dharwad</div>
+                    <div class="links" onclick="About()">About IIIT Dharwad</div>
+                    <div class="links" onclick="Acedemics()">Acedemics</div>
+                    <div class="links" onclick="AIMS()">AIMS Portal</div>
+                </div>
+                <div class="sections">
+                    <div class="section-headers">Contact Us</div>
+                    <div class="links">
+                        <span class="material-symbols-outlined">
+                            home
+                            </span>
+                    </div>
+                    <div class="links1">IIIT Dharwad Campus, Ittigatti Road, Near Sattur Colony, Dharwad 580009</div>
+                    <div class="links">
+                        <span class="material-symbols-outlined">
+                            phone_in_talk
+                            </span>
+                    </div>
+                    <div class="links1">0836 2250879, 9449732959</div>
+                </div>
+                <div class="sections1" style="border-left:1px solid var(--gray-200);">
+                    <div class="section-headers">Social Links</div>
+                    <div class="links2">
+                        <div style="display:flex;align-items:center;cursor: pointer;" onclick="youtube()">
+                            <i class="fa fa-youtube-play yt" style="font-size:1.5rem;color:var(--options-inactive);"></i>
+                        </div>
+                        <div style="display:flex;align-items:center;color:var(--options-inactive);cursor: pointer;" onclick="youtube()">
+                            YouTube
+                        </div>
+                    </div>
+                    <div class="links2">
+                        <div style="display:flex;align-items:center;cursor: pointer;" onclick="twitter()">
+                            <i class="fa fa-twitter twt" style="font-size:1.5rem;color:var(--options-inactive);"></i>
+                        </div>
+                        <div style="display:flex;align-items:center;color:var(--options-inactive);cursor: pointer;" onclick="twitter()">
+                            Twitter
+                        </div>
+                    </div>
+                    <div class="links2">
+                        <div style="display:flex;align-items:center;cursor: pointer;" onclick="facebook()">
+                            <i class="fa fa-facebook fb" style="font-size:1.5rem;color:var(--options-inactive);"></i>
+                        </div>
+                        <div style="display:flex;align-items:center;color:var(--options-inactive);cursor: pointer;" onclick="facebook()">
+                            Facebook
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="footer-bottom">
+                <div id="footer-img"></div>
+            </div>
+        </footer>
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        <script>
+            AOS.init();
+
+            function IIITD() {
+            window.open(
+            "https://iiitdwd.ac.in", "_blank");
+        }
+
+        function facebook() {
+            window.open(
+                "https://www.facebook.com/pages/category/Interest/IIIT-Dharwad-107055984131970/","_blank");
+        }
+
+        function youtube(){
+            window.open(
+                "https://www.youtube.com/channel/UCVvvR0-TvLQOJehUPkQ_Cwg","_blank");
+        }
+
+        function twitter(){
+            window.open(
+                "https://twitter.com/dharwad_iiit?lang=en","_blank");
+        }
+
+        function About() {
+            window.open(
+            "https://iiitdwd.ac.in/about.php", "_blank");
+        }
+        function Acedemics() {
+            window.open(
+            "https://iiitdwd.ac.in/academics.php", "_blank");
+        }
+        function AIMS() {
+            window.open(
+            "https://aims.iiitdwd.ac.in/aims/", "_blank");
+        }
+
+            function darkmode(){
+                var element= document.body;
+
+                element.classList.toggle('dark-theme-body');
+            }
+
+            function comments(){
+                var invisbox = document.getElementById('new-box');
+                var outpassbox = document.getElementById('outpass-body');
+
+                invisbox.style.display="flex";
+                outpassbox.style.display="none";
+                
+            }
+
+            function Return(){
+                var invisbox = document.getElementById('new-box');
+                var outpassbox = document.getElementById('outpass-body');
+
+                invisbox.style.display="none";
+                outpassbox.style.display="grid";
+            }
+
+            function changepassword(){
+                location.assign('C:/Users/Admin/Desktop/Projects/views/Change_password.html');
+            }
+
+            function logout(){
+                location.assign('C:/Users/Admin/Desktop/Projects/views/Login.html');
+            }
+
+            function showdiv(){
+                document.getElementById('profile-box').style.height ="60%";
+                document.getElementById('profile-img').style.display='flex';
+                document.getElementById('profile-info').style.display='block';
+                document.getElementById('darkmode').style.display='grid';
+            }
+
+            window.onload = function(){
+                var hidediv = document.getElementById('profile-box');
+                var profile = document.getElementById('profile-img');
+                var info = document.getElementById('profile-info');
+                var darkmode = document.getElementById('darkmode');
+
+                document.onclick = function(div){
+                    if(div.target.id!='box2' && div.target.id!="profile" && div.target.className!='info' && div.target.id!="darkmode" && div.target.className!='switch' && div.target.className!='theme-switch' && div.target.id!='slider' && div .target.id!='checkbox' && div.target.className!='change-password' && div.target.id!='logout-btn'){
+                        hidediv.style.height='0';
+                        profile.style.display='none';
+                        info.style.display='none';
+                        darkmode.style.display='none';
+                    }
+                }
+            }
+          </script>
+    </body>
+</html>

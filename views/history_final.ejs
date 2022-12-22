@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <link rel="stylesheet" href="http://localhost:8080/styles/history.css">
+        <link href='https://fonts.googleapis.com/css?family=Aldrich' rel='stylesheet'>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Roboto:wght@300&family=Varela+Round&display=swap" rel="stylesheet">        
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">            
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>            
+        <script>
+            function Home(){
+                location.assign('C:/Users/Admin/Desktop/Projects/views/Home.html');
+            }
+
+            function changepassword(){
+                location.assign('C:/Users/Admin/Desktop/Projects/views/Change_password.html');
+            }
+
+            function logout(){
+                location.assign('C:/Users/Admin/Desktop/Projects/views/Login.html');
+            }
+
+            function showdiv(){
+                document.getElementById('profile-box').style.height ="60%";
+                document.getElementById('profile-img').style.display='flex';
+                document.getElementById('profile-info').style.display='block';
+                document.getElementById('darkmode').style.display='grid';
+
+            }
+
+            window.onload = function(){
+                var hidediv = document.getElementById('profile-box');
+                var profile = document.getElementById('profile-img');
+                var info = document.getElementById('profile-info');
+                var darkmode = document.getElementById('darkmode');
+
+                document.onclick = function(div){
+                    if(div.target.id!='box2' && div.target.id!="profile" && div.target.className!='info' && div.target.id!="darkmode" && div.target.className!='switch' && div.target.className!='theme-switch' && div.target.id!='slider' && div .target.id!='checkbox' && div.target.className!='change-password' && div.target.id!='logout-btn'){
+                        hidediv.style.height='0';
+                        profile.style.display='none';
+                        info.style.display='none';
+                        darkmode.style.display='none';
+                    }
+                }
+            }
+
+            function enablebtn(){
+                var check=document.getElementById("disable-checkbox");
+
+                if(check.checked){
+                    document.getElementById("submit-button").disabled=false;
+                    document.getElementById("submit-button").style.backgroundImage="linear-gradient(-90deg, var(--topbar-light-color1) 0%, var(--green3) 100%)";
+                    document.getElementById("submit-button").style.boxShadow="0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)";
+                }
+                else{
+                    document.getElementById("submit-button").disabled = true;
+                    document.getElementById("submit-button").style.backgroundImage="none";
+                    document.getElementById("submit-button").style.boxShadow="none";
+                }
+            }
+            function showoutpass(){
+                document.getElementById('status-body').style.display='none';
+                document.getElementById('outpass-body').style.display='grid';
+                document.getElementById('status-btn').style.background="var(--options-background)";
+                document.getElementById('remaining').style.borderTopLeftRadius="0px";
+                document.getElementById('status-btn').style.borderTop="1px solid #c3c6d1";
+                document.getElementById('status-btn').style.borderBottom="1px solid #c3c6d1";
+                document.getElementById('status-btn').style.borderLeft="1px solid #c3c6d1";
+                document.getElementById('remaining').style.borderLeft="none";
+                document.getElementById('outpass-btn').style.borderBottom="3px solid #1e90ff";
+                document.getElementById('status-btn').style.borderBottom="none";
+                document.getElementById('outpass-btn').style.borderLeft="none";
+                document.getElementById('outpass-btn').style.background="none";
+                document.getElementById('outpass-btn').style.borderTop="none";
+                document.getElementById('outpass-btn').style.borderRight="none";
+                document.getElementById('outpass-btn').style.fontWeight="bold";
+                document.getElementById('status-btn').style.fontWeight="normal";
+                document.getElementById('remaining').style.borderLeft="1px solid #c3c6d1";
+            }
+
+            function showstatus(){
+                document.getElementById('status-body').style.display='grid';
+                document.getElementById('outpass-body').style.display='none';
+                document.getElementById('outpass-btn').style.background="var(--options-background)";
+                document.getElementById('outpass-btn').style.borderTop="1px solid #c3c6d1";
+                document.getElementById('outpass-btn').style.borderRight="1px solid #c3c6d1";
+                document.getElementById('status-btn').style.borderBottom="3px solid #1e90ff";
+                document.getElementById('outpass-btn').style.borderBottom="none";
+                document.getElementById('status-btn').style.background="none";
+                document.getElementById('status-btn').style.borderTop="none";
+                document.getElementById('status-btn').style.borderLeft="none";
+                document.getElementById('status-btn').style.borderRight="none";
+                document.getElementById('remaining').style.borderTopLeftRadius="8px";
+                document.getElementById('remaining').style.borderLeft="1px solid #c3c6d1";
+                document.getElementById('outpass-btn').style.fontWeight="normal";
+                document.getElementById('status-btn').style.fontWeight="bold";
+            }
+            
+            function Complaints(){
+                location.assign('C:/Users/Admin/Desktop/Projects/views/Complaints.html');
+            }
+
+            function darkmode(){
+                var element= document.body;
+
+                element.classList.toggle('dark-theme-body');
+            }
+        </script>
+
+    </head>
+    <body>
+        <!-- <div id="background"></div> -->
+        <div id="top-navbar">
+            <div id="image-holder">
+                <div id="logo"></div>
+            </div>
+            <div id="content-holder">
+                <div id="social-media"></div>
+                <div id="slanted-item">
+                    <div id="menu-1">
+                        <div id="menu-container">
+                            <a class="menu" href="/home">HOME</a>
+                            <a class="menu" href="/complaintscategory" >COMPLAINTS</a>
+                            <a class="menu" href="/outpass">OUTPASS</a>
+                        </div>
+                    </div> 
+
+                    <div id="profile" onclick="showdiv()">
+                        <i class='fas fa-user fa-2x' style="pointer-events: none;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="profile-box">
+            <div id="box2">
+                <div id="profile-img">
+                    <i class='fas fa-user-edit' style='font-size:90px;color:white'></i>
+                </div>
+                <form>
+                    <div id="profile-info">
+                        <div class="info" style="font-size:20px;"><%=pname%></div>
+                        <div class="info"><%=prollno%></div>
+                        <div class="info">Personal Contact No. : <%=ppenum%></div>
+                        <div class="info">Parent contact no. : <%=ppanum%></div>
+                    </div>
+                </form>
+                <div id="darkmode">
+                    <div id="darkmode-div">
+                        <div class="darkmode-font">Light</div>
+                        <div class="switch">
+                            <label class="theme-switch" for="checkbox">
+                                <input type="checkbox" id="checkbox" />
+                                <div id="slider" onclick="darkmode()"class="slider round"></div>
+                            </label>
+                        </div>
+                        <div class="darkmode-font">Dark</div>
+                    </div>
+
+                    <a class="change-password" href="/changepassword">Change Password</a>
+                
+
+                    
+                    <div class="logout">
+                        <a href="/start" id="logout-btn">LOGOUT</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="background-div1"></div>
+        <div id="grid-up"></div>
+        <div id="maindiv">
+            <div class="main-box">
+                <div class="main-box-container">
+                    <div class="main-header">
+                        <div id="header-close-link"></div>
+                        <div class="options">
+                            <div id="outpass-btn" onclick="showoutpass()">OUTPASS</div>
+                            <div id="status-btn" onclick="showstatus()">COMPLAINTS</div>
+                            <div id="remaining"></div>
+                        </div>
+                    </div>
+                    <div id="outpass-body">
+                        <div class="history-tab-bar">
+                            <div class="history-tab-outpass">
+                                <div class="center-all" style="border-right:1px solid #c3c6d1;padding-left:0.3rem">S.No.</div>
+                                <!-- <div class="center-all" style="border-right:1px solid #c3c6d1;padding-left:0.3rem">GatePass No.</div> -->
+                                <div class="center-all" style="border-right:1px solid #c3c6d1;padding-left:0.3rem">From</div>
+                                <div class="center-all" style="border-right:1px solid #c3c6d1;padding-left:0.3rem">To</div>
+                                <div class="center-all" style="padding-left:0.3rem">Action Taken</div>
+                            </div>
+                        </div>
+                        <div class="history-items">
+                            <div class="history-rows-outpass">
+                                <%for(i=0;i<elenum;i++){%>
+                                <div class="center-all" style="border-right:1px solid #c3c6d1;padding-left:0.3rem"><%=i+1%></div>
+                                <!-- <div class="center-all" style="border-right:1px solid #c3c6d1;padding-left:0.3rem">GatePass No.</div> -->
+                                <div class="center-all" style="border-right:1px solid #c3c6d1;padding-left:0.3rem"><%=outpassdetails[i].departure%></div>
+                                <div class="center-all" style="border-right:1px solid #c3c6d1;padding-left:0.3rem"><%=outpassdetails[i].arrival%></div>
+                                <div class="center-all" style="padding-left:0.3rem"><%=outpassdetails[i].outpassstatus%></div>
+                                <%}%>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="status-body">
+                        <div class="history-tab-bar">
+                            <div class="history-tab-complaints">
+                                <div class="center-all" style="border-right:1px solid #c3c6d1;padding-left:0.3rem">S.No.</div>
+                                <div class="center-all" style="border-right:1px solid #c3c6d1;padding-left:0.3rem">Complaint</div>
+                                <div class="center-all" style="border-right:1px solid #c3c6d1;padding-left:0.3rem">Category</div>
+                                
+                            </div>
+                        </div>
+                        <div class="history-items">
+                            <div class="history-rows-complaints">
+                                <%for(j=0;j<elenum2;j++){%>
+                                <div class="center-all" style="border-right:1px solid #c3c6d1;padding-left:0.3rem"><%=j+1%></div>
+                                <div class="center-all" style="border-right:1px solid #c3c6d1;padding-left:0.3rem"><%=complaint[j].complaint%></div>
+                                <div class="center-all" style="border-right:1px solid #c3c6d1;padding-left:0.3rem"><%=complaint[j].category%></div>
+                                <%}%>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div id="details">
+                <div class="sections" style="border-right:1px solid var(--gray-200);">
+                    <div id="section-headers1">Quick Find</div>
+                    <div class="links" onclick="IIITD()">IIIT Dharwad</div>
+                    <div class="links" onclick="About()">About IIIT Dharwad</div>
+                    <div class="links" onclick="Acedemics()">Acedemics</div>
+                    <div class="links" onclick="AIMS()">AIMS Portal</div>
+                </div>
+                <div class="sections">
+                    <div class="section-headers">Contact Us</div>
+                    <div class="links">
+                        <span class="material-symbols-outlined">
+                            home
+                            </span>
+                    </div>
+                    <div class="links1">IIIT Dharwad Campus, Ittigatti Road, Near Sattur Colony, Dharwad 580009</div>
+                    <div class="links">
+                        <span class="material-symbols-outlined">
+                            phone_in_talk
+                            </span>
+                    </div>
+                    <div class="links1">0836 2250879, 9449732959</div>
+                </div>
+                <div class="sections1" style="border-left:1px solid var(--gray-200);">
+                    <div class="section-headers">Social Links</div>
+                    <div class="links2">
+                        <div style="display:flex;align-items:center;cursor: pointer;" onclick="youtube()">
+                            <i class="fa fa-youtube-play yt" style="font-size:1.5rem;color:var(--options-inactive);"></i>
+                        </div>
+                        <div style="display:flex;align-items:center;color:var(--options-inactive);cursor: pointer;" onclick="youtube()">
+                            YouTube
+                        </div>
+                    </div>
+                    <div class="links2">
+                        <div style="display:flex;align-items:center;cursor: pointer;" onclick="twitter()">
+                            <i class="fa fa-twitter twt" style="font-size:1.5rem;color:var(--options-inactive);"></i>
+                        </div>
+                        <div style="display:flex;align-items:center;color:var(--options-inactive);cursor: pointer;" onclick="twitter()">
+                            Twitter
+                        </div>
+                    </div>
+                    <div class="links2">
+                        <div style="display:flex;align-items:center;cursor: pointer;" onclick="facebook()">
+                            <i class="fa fa-facebook fb" style="font-size:1.5rem;color:var(--options-inactive);"></i>
+                        </div>
+                        <div style="display:flex;align-items:center;color:var(--options-inactive);cursor: pointer;" onclick="facebook()">
+                            Facebook
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="footer-bottom">
+                <div id="footer-img"></div>
+            </div>
+        </footer>
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        <script>
+          AOS.init();
+
+          function IIITD() {
+            window.open(
+            "https://iiitdwd.ac.in", "_blank");
+        }
+
+        function facebook() {
+            window.open(
+                "https://www.facebook.com/pages/category/Interest/IIIT-Dharwad-107055984131970/","_blank");
+        }
+
+        function youtube(){
+            window.open(
+                "https://www.youtube.com/channel/UCVvvR0-TvLQOJehUPkQ_Cwg","_blank");
+        }
+
+        function twitter(){
+            window.open(
+                "https://twitter.com/dharwad_iiit?lang=en","_blank");
+        }
+
+        function About() {
+            window.open(
+            "https://iiitdwd.ac.in/about.php", "_blank");
+        }
+        function Acedemics() {
+            window.open(
+            "https://iiitdwd.ac.in/academics.php", "_blank");
+        }
+        function AIMS() {
+            window.open(
+            "https://aims.iiitdwd.ac.in/aims/", "_blank");
+        }
+        </script>
+    </body>
+</html>
